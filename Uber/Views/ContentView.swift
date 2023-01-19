@@ -8,9 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingSearch = false
+
     var body: some View {
-        MapViewRepresantable()
-            .ignoresSafeArea()
+        ZStack(alignment: .top) {
+            MapViewRepresantable()
+
+            if showingSearch {
+                SearchView()
+            } else {
+                SearchBar()
+                    .padding(.top, 100)
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            showingSearch.toggle()
+                        }
+                    }
+            }
+
+            MapButton(showingSearch: $showingSearch)
+                .padding(.leading, 10)
+                .padding(.top, 50)
+        }
+        .ignoresSafeArea()
     }
 }
 
