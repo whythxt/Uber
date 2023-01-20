@@ -35,7 +35,7 @@ class SearchViewModel: NSObject, ObservableObject {
         }
     }
 
-    func search(for local: MKLocalSearchCompletion, completion: @escaping MKLocalSearch.CompletionHandler) {
+    private func search(for local: MKLocalSearchCompletion, completion: @escaping MKLocalSearch.CompletionHandler) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = local.title.appending(local.subtitle)
 

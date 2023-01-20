@@ -26,6 +26,7 @@ struct MapViewRepresantable: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) {
         if let coordinate = vm.coordinate {
             context.coordinator.addAnnotation(with: coordinate)
+            context.coordinator.getDirections(with: coordinate)
         }
     }
 

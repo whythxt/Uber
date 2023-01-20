@@ -11,13 +11,18 @@ import MapKit
 extension MapViewRepresantable {
     class MapCoordinator: NSObject, MKMapViewDelegate {
         let parent: MapViewRepresantable
+        var location: CLLocationCoordinate2D?
 
         init(parent: MapViewRepresantable) {
             self.parent = parent
             super.init()
         }
 
+        // MARK: - MapView
+
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+            location = userLocation.coordinate
+
             let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(
                     latitude: userLocation.coordinate.latitude,
@@ -29,6 +34,16 @@ extension MapViewRepresantable {
             parent.map.setRegion(region, animated: true)
         }
 
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let line = MKPolygonRenderer(overlay: overlay)
+            line.strokeColor = .systemBlue
+            line.lineWidth = 5
+
+            return line
+        }
+
+        // MARK: - Annotation
+
         func addAnnotation(with coordinate: CLLocationCoordinate2D) {
             parent.map.removeAnnotations(parent.map.annotations)
 
@@ -38,6 +53,35 @@ extension MapViewRepresantable {
             parent.map.addAnnotation(annotation)
             parent.map.selectAnnotation(annotation, animated: true)
             parent.map.showAnnotations(parent.map.annotations, animated: true)
+        }
+
+        // MARK: - Route Generation
+
+        private func getDestination(
+            from location: CLLocationCoordinate2D,
+            to destination: CLLocationCoordinate2D,
+            completion: @escaping (MKRoute) -> Void
+        ) {
+            let loc = MKPlacemark(coordinate: location)
+            let des = MKPlacemark(coordinate: destination)
+
+            let request = MKDirections.Request()
+            request.source = MKMapItem(placemark: loc)
+            request.destination = MKMapItem(placemark: des)
+
+            let directions = MKDirections(request: request)
+            directions.calculate { response, error in
+                guard let route = response?.routes.first else { return }
+                completion(route)
+            }
+        }
+
+        func getDirections(with destination: CLLocationCoordinate2D) {
+            guard let location else { return }
+
+            getDestination(from: location, to: destination) { route in
+                self.parent.map.addOverlay(route.polyline)
+            }
         }
     }
 }
