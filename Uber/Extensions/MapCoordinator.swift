@@ -28,5 +28,16 @@ extension MapViewRepresantable {
 
             parent.map.setRegion(region, animated: true)
         }
+
+        func addAnnotation(with coordinate: CLLocationCoordinate2D) {
+            parent.map.removeAnnotations(parent.map.annotations)
+
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+
+            parent.map.addAnnotation(annotation)
+            parent.map.selectAnnotation(annotation, animated: true)
+            parent.map.showAnnotations(parent.map.annotations, animated: true)
+        }
     }
 }

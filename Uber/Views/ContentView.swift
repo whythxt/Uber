@@ -15,7 +15,7 @@ struct ContentView: View {
             MapViewRepresantable()
 
             if showingSearch {
-                SearchView()
+                SearchView(showingSearch: $showingSearch)
             } else {
                 SearchBar()
                     .padding(.top, 100)
@@ -37,5 +37,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(SearchViewModel())
     }
 }

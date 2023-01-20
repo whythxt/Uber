@@ -12,6 +12,8 @@ struct MapViewRepresantable: UIViewRepresentable {
     let map = MKMapView()
     let provider = LocationProvider()
 
+    @EnvironmentObject var vm: SearchViewModel
+
     func makeUIView(context: Context) -> some UIView {
         map.delegate = context.coordinator
         map.isRotateEnabled = false
@@ -21,7 +23,11 @@ struct MapViewRepresantable: UIViewRepresentable {
         return map
     }
 
-    func updateUIView(_ uiView: UIViewType, context: Context) { }
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        if let coordinate = vm.coordinate {
+            context.coordinator.addAnnotation(with: coordinate)
+        }
+    }
 
     func makeCoordinator() -> MapCoordinator {
         return MapCoordinator(parent: self)
