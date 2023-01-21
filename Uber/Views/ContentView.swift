@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingSearch = false
+    @State private var state = MapState.idle
 
     var body: some View {
         ZStack(alignment: .top) {
-            MapViewRepresantable()
+            MapViewRepresantable(state: $state)
 
-            if showingSearch {
-                SearchView(showingSearch: $showingSearch)
-            } else {
+            if state == .search {
+                SearchView(state: $state)
+            } else if state == .idle {
                 SearchBar()
                     .padding(.top, 100)
                     .onTapGesture {
                         withAnimation(.spring()) {
-                            showingSearch.toggle()
+                            state = .search
                         }
                     }
             }
 
-            MapButton(showingSearch: $showingSearch)
+            MapButton(state: $state)
                 .padding(.leading, 10)
                 .padding(.top, 50)
         }

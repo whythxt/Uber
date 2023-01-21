@@ -12,6 +12,7 @@ extension MapViewRepresantable {
     class MapCoordinator: NSObject, MKMapViewDelegate {
         let parent: MapViewRepresantable
         var location: CLLocationCoordinate2D?
+        var current: MKCoordinateRegion?
 
         init(parent: MapViewRepresantable) {
             self.parent = parent
@@ -31,11 +32,12 @@ extension MapViewRepresantable {
                 span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             )
 
+            current = region
             parent.map.setRegion(region, animated: true)
         }
 
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            let line = MKPolygonRenderer(overlay: overlay)
+            let line = MKPolylineRenderer(overlay: overlay)
             line.strokeColor = .systemBlue
             line.lineWidth = 5
 
@@ -81,6 +83,15 @@ extension MapViewRepresantable {
 
             getDestination(from: location, to: destination) { route in
                 self.parent.map.addOverlay(route.polyline)
+            }
+        }
+
+        func clear() {
+            parent.map.removeAnnotations(parent.map.annotations)
+            parent.map.removeOverlays(parent.map.overlays)
+
+            if let current {
+                parent.map.setRegion(current, animated: true)
             }
         }
     }

@@ -14,6 +14,8 @@ struct MapViewRepresantable: UIViewRepresentable {
 
     @EnvironmentObject var vm: SearchViewModel
 
+    @Binding var state: MapState
+
     func makeUIView(context: Context) -> some UIView {
         map.delegate = context.coordinator
         map.isRotateEnabled = false
@@ -24,9 +26,16 @@ struct MapViewRepresantable: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        if let coordinate = vm.coordinate {
-            context.coordinator.addAnnotation(with: coordinate)
-            context.coordinator.getDirections(with: coordinate)
+        switch state {
+            case .idle:
+                context.coordinator.clear()
+            case .search:
+                break
+            case .selected:
+                if let coordinate = vm.coordinate {
+                    context.coordinator.addAnnotation(with: coordinate)
+                    context.coordinator.getDirections(with: coordinate)
+                }
         }
     }
 

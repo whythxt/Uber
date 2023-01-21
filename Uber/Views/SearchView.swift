@@ -12,7 +12,7 @@ struct SearchView: View {
 
     @State private var location = ""
 
-    @Binding var showingSearch: Bool
+    @Binding var state: MapState
 
     var body: some View {
         VStack {
@@ -68,7 +68,7 @@ struct SearchView: View {
                         .onTapGesture {
                             vm.select(result)
                             vm.query = ""
-                            showingSearch.toggle()
+                            state = .selected
                         }
                 }
             }
@@ -78,7 +78,7 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(showingSearch: .constant(false))
+        SearchView(state: .constant(.search))
             .environmentObject(SearchViewModel())
     }
 }

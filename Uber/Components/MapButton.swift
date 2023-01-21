@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct MapButton: View {
-    @Binding var showingSearch: Bool
+    @Binding var state: MapState
 
     var body: some View {
         Button {
             withAnimation(.spring()) {
-                showingSearch.toggle()
+                getAction(state)
             }
         } label: {
-            Image(systemName: showingSearch ? "arrow.left" : "line.3.horizontal")
+            Image(systemName: getImage(state))
                 .font(.title2)
                 .foregroundColor(.black)
                 .padding()
@@ -26,10 +26,28 @@ struct MapButton: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
+
+    func getAction(_ st: MapState) {
+        switch st {
+            case .idle:
+                break
+            default:
+                state = .idle
+        }
+    }
+
+    func getImage(_ st: MapState) -> String {
+        switch st {
+            case .idle:
+                return "line.3.horizontal"
+            default:
+                return "arrow.left"
+        }
+    }
 }
 
 struct MapButton_Previews: PreviewProvider {
     static var previews: some View {
-        MapButton(showingSearch: .constant(false))
+        MapButton(state: .constant(.idle))
     }
 }
