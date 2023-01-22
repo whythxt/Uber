@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AB5AF3EA2979904000516AA7 /* UberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5AF3E92979904000516AA7 /* UberApp.swift */; };
 		AB5AF3EC2979904000516AA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5AF3EB2979904000516AA7 /* ContentView.swift */; };
-		AB5AF3EE2979904300516AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5AF3ED2979904300516AA7 /* Assets.xcassets */; };
 		AB5AF3F12979904300516AA7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5AF3F02979904300516AA7 /* Preview Assets.xcassets */; };
 		AB5AF3FA2979911F00516AA7 /* MapViewRepresantable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5AF3F92979911E00516AA7 /* MapViewRepresantable.swift */; };
 		AB5AF3FD2979923A00516AA7 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5AF3FC2979923A00516AA7 /* MapCoordinator.swift */; };
@@ -22,13 +21,15 @@
 		AB5AF40E2979A9D600516AA7 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5AF40D2979A9D600516AA7 /* SearchViewModel.swift */; };
 		AB5AF4112979AB2F00516AA7 /* SearchCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5AF4102979AB2F00516AA7 /* SearchCompleter.swift */; };
 		ABB073EA297C585000C0D944 /* MapState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073E9297C585000C0D944 /* MapState.swift */; };
+		ABB073ED297D889500C0D944 /* RideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073EC297D889500C0D944 /* RideView.swift */; };
+		ABB073EF297D88CD00C0D944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB073EE297D88CD00C0D944 /* Assets.xcassets */; };
+		ABB073F1297DA13000C0D944 /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F0297DA13000C0D944 /* RideType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB5AF3E62979904000516AA7 /* Uber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB5AF3E92979904000516AA7 /* UberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberApp.swift; sourceTree = "<group>"; };
 		AB5AF3EB2979904000516AA7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AB5AF3ED2979904300516AA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB5AF3F02979904300516AA7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB5AF3F92979911E00516AA7 /* MapViewRepresantable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresantable.swift; sourceTree = "<group>"; };
 		AB5AF3FC2979923A00516AA7 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -41,6 +42,9 @@
 		AB5AF40D2979A9D600516AA7 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AB5AF4102979AB2F00516AA7 /* SearchCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleter.swift; sourceTree = "<group>"; };
 		ABB073E9297C585000C0D944 /* MapState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapState.swift; sourceTree = "<group>"; };
+		ABB073EC297D889500C0D944 /* RideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideView.swift; sourceTree = "<group>"; };
+		ABB073EE297D88CD00C0D944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABB073F0297DA13000C0D944 /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +84,7 @@
 				ABB073EB297C585D00C0D944 /* Models */,
 				AB5AF3FB2979921100516AA7 /* Views */,
 				AB5AF40F2979A9DA00516AA7 /* ViewModels */,
-				AB5AF3ED2979904300516AA7 /* Assets.xcassets */,
+				ABB073EE297D88CD00C0D944 /* Assets.xcassets */,
 				AB5AF3EF2979904300516AA7 /* Preview Content */,
 			);
 			path = Uber;
@@ -100,6 +104,7 @@
 				AB5AF3EB2979904000516AA7 /* ContentView.swift */,
 				AB5AF40929799F0400516AA7 /* SearchView.swift */,
 				AB5AF3F92979911E00516AA7 /* MapViewRepresantable.swift */,
+				ABB073EC297D889500C0D944 /* RideView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				ABB073E9297C585000C0D944 /* MapState.swift */,
+				ABB073F0297DA13000C0D944 /* RideType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,8 +212,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB073EF297D88CD00C0D944 /* Assets.xcassets in Resources */,
 				AB5AF3F12979904300516AA7 /* Preview Assets.xcassets in Resources */,
-				AB5AF3EE2979904300516AA7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +226,10 @@
 			files = (
 				AB5AF40E2979A9D600516AA7 /* SearchViewModel.swift in Sources */,
 				AB5AF40529799B4100516AA7 /* SearchBar.swift in Sources */,
+				ABB073ED297D889500C0D944 /* RideView.swift in Sources */,
 				AB5AF40A29799F0400516AA7 /* SearchView.swift in Sources */,
 				AB5AF3EC2979904000516AA7 /* ContentView.swift in Sources */,
+				ABB073F1297DA13000C0D944 /* RideType.swift in Sources */,
 				ABB073EA297C585000C0D944 /* MapState.swift in Sources */,
 				AB5AF3FA2979911F00516AA7 /* MapViewRepresantable.swift in Sources */,
 				AB5AF4002979929900516AA7 /* LocationProvider.swift in Sources */,

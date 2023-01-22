@@ -11,6 +11,7 @@ struct SearchView: View {
     @EnvironmentObject var vm: SearchViewModel
 
     @State private var location = ""
+    @FocusState private var isFocused: Bool
 
     @Binding var state: MapState
 
@@ -22,6 +23,9 @@ struct SearchView: View {
         }
         .padding(.top, 75)
         .background(.white)
+        .onAppear {
+            isFocused.toggle()
+        }
     }
 
     var header: some View {
@@ -35,7 +39,7 @@ struct SearchView: View {
                     .fill(.secondary)
                     .frame(width: 1, height: 25)
 
-                Circle()
+                Rectangle()
                     .fill(.black)
                     .frame(width: 5, height: 5)
             }
@@ -55,6 +59,7 @@ struct SearchView: View {
                     .background(Color(.systemGroupedBackground).shadow(radius: 1))
                     .padding(.trailing)
                     .autocorrectionDisabled()
+                    .focused($isFocused)
             }
         }
         .padding(.top, 60)
@@ -66,9 +71,11 @@ struct SearchView: View {
                 ForEach(vm.results, id: \.self) { result in
                     LocationRow(title: result.title, subtitle: result.subtitle)
                         .onTapGesture {
-                            vm.select(result)
-                            vm.query = ""
-                            state = .selected
+                            withAnimation(.spring()) {
+                                vm.select(result)
+                                vm.query = ""
+                                state = .selected
+                            }
                         }
                 }
             }

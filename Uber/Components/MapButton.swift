@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MapButton: View {
+    @EnvironmentObject var vm: SearchViewModel
+
     @Binding var state: MapState
 
     var body: some View {
@@ -31,8 +33,11 @@ struct MapButton: View {
         switch st {
             case .idle:
                 break
-            default:
+            case .search:
                 state = .idle
+            case .selected:
+                state = .idle
+                vm.coordinate = nil
         }
     }
 
@@ -49,5 +54,6 @@ struct MapButton: View {
 struct MapButton_Previews: PreviewProvider {
     static var previews: some View {
         MapButton(state: .constant(.idle))
+            .environmentObject(SearchViewModel())
     }
 }

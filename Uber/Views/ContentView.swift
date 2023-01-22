@@ -11,26 +11,34 @@ struct ContentView: View {
     @State private var state = MapState.idle
 
     var body: some View {
-        ZStack(alignment: .top) {
-            MapViewRepresantable(state: $state)
+        ZStack(alignment: .bottom) {
+            ZStack(alignment: .top) {
+                MapViewRepresantable(state: $state)
 
-            if state == .search {
-                SearchView(state: $state)
-            } else if state == .idle {
-                SearchBar()
-                    .padding(.top, 100)
-                    .onTapGesture {
-                        withAnimation(.spring()) {
-                            state = .search
+                if state == .search {
+                    SearchView(state: $state)
+                } else if state == .idle {
+                    SearchBar()
+                        .padding(.top, 100)
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                state = .search
+                            }
                         }
-                    }
-            }
+                }
 
-            MapButton(state: $state)
-                .padding(.leading, 10)
-                .padding(.top, 50)
+                MapButton(state: $state)
+                    .padding(.leading, 10)
+                    .padding(.top, 50)
+            }
+            .ignoresSafeArea()
+
+            if state == .selected {
+                RideView()
+                    .transition(.move(edge: .bottom ))
+            }
         }
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

@@ -38,7 +38,7 @@ extension MapViewRepresantable {
 
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
             let line = MKPolylineRenderer(overlay: overlay)
-            line.strokeColor = .systemBlue
+            line.strokeColor = .black
             line.lineWidth = 5
 
             return line
@@ -54,7 +54,6 @@ extension MapViewRepresantable {
 
             parent.map.addAnnotation(annotation)
             parent.map.selectAnnotation(annotation, animated: true)
-            parent.map.showAnnotations(parent.map.annotations, animated: true)
         }
 
         // MARK: - Route Generation
@@ -83,6 +82,15 @@ extension MapViewRepresantable {
 
             getDestination(from: location, to: destination) { route in
                 self.parent.map.addOverlay(route.polyline)
+
+                let rect = self.parent.map.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: .init(
+                    top: 64,
+                    left: 32,
+                    bottom: 500,
+                    right: 32)
+                )
+
+                self.parent.map.setRegion(MKCoordinateRegion(rect), animated: true)
             }
         }
 
