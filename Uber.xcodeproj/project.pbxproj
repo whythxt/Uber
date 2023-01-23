@@ -26,6 +26,7 @@
 		ABB073F1297DA13000C0D944 /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F0297DA13000C0D944 /* RideType.swift */; };
 		ABB073F3297EB60A00C0D944 /* Double-Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F2297EB60A00C0D944 /* Double-Currency.swift */; };
 		ABB073F5297EBA0E00C0D944 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F4297EBA0E00C0D944 /* Location.swift */; };
+		ABB073F7297EFEB000C0D944 /* Color-ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F6297EFEB000C0D944 /* Color-ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		ABB073F0297DA13000C0D944 /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
 		ABB073F2297EB60A00C0D944 /* Double-Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double-Currency.swift"; sourceTree = "<group>"; };
 		ABB073F4297EBA0E00C0D944 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		ABB073F6297EFEB000C0D944 /* Color-ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-ColorTheme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				AB5AF402297995F800516AA7 /* LocationUpdate.swift */,
 				AB5AF4102979AB2F00516AA7 /* SearchCompleter.swift */,
 				ABB073F2297EB60A00C0D944 /* Double-Currency.swift */,
+				ABB073F6297EFEB000C0D944 /* Color-ColorTheme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB5AF40E2979A9D600516AA7 /* SearchViewModel.swift in Sources */,
+				ABB073F7297EFEB000C0D944 /* Color-ColorTheme.swift in Sources */,
 				AB5AF40529799B4100516AA7 /* SearchBar.swift in Sources */,
 				ABB073ED297D889500C0D944 /* RideView.swift in Sources */,
 				ABB073F3297EB60A00C0D944 /* Double-Currency.swift in Sources */,

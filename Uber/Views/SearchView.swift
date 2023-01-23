@@ -22,7 +22,7 @@ struct SearchView: View {
                 .padding(.top)
         }
         .padding(.top, 75)
-        .background(.white)
+        .background(Color.theme.background)
         .onAppear {
             isFocused.toggle()
         }

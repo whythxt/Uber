@@ -28,7 +28,7 @@ struct RideView: View {
             confirmation
         }
         .padding(.bottom, 20)
-        .background(.white)
+        .background(Color.theme.background)
         .cornerRadius(15)
     }
 
@@ -107,8 +107,8 @@ struct RideView: View {
 
                         }
                         .frame(width: 110, height: 140)
-                        .background(Color(type == ride ? .black : .systemGroupedBackground))
-                        .foregroundColor(type == ride ? .white : .black)
+                        .background(type == ride ? .black : Color.theme.secondary)
+                        .foregroundColor(type == ride ? .white : Color.theme.primary)
                         .scaleEffect(type == ride ? 1.1 : 1)
                         .cornerRadius(10)
                         .onTapGesture {
@@ -140,7 +140,7 @@ struct RideView: View {
             }
             .padding()
             .frame(height: 50)
-            .background(Color(.systemGroupedBackground))
+            .background(Color.theme.secondary)
             .cornerRadius(10)
             .padding(.horizontal)
 

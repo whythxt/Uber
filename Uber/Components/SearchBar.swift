@@ -16,7 +16,7 @@ struct SearchBar: View {
                 .padding(.horizontal)
 
             Text("Where to?")
-                .foregroundColor(.secondary)
+                .foregroundColor(Color.theme.secondary)
 
             Spacer()
         }
