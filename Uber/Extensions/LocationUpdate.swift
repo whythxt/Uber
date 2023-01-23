@@ -10,7 +10,9 @@ import Foundation
 
 extension LocationProvider: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard !locations.isEmpty else { return }
+        guard let loc = locations.first else { return }
+
+        self.location = loc.coordinate
         provider.stopUpdatingLocation()
     }
 }

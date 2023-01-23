@@ -10,6 +10,9 @@ import Foundation
 
 class LocationProvider: NSObject, ObservableObject {
     let provider = CLLocationManager()
+    static let shared = LocationProvider()
+
+    @Published var location: CLLocationCoordinate2D?
 
     override init() {
         super.init()

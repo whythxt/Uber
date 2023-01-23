@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MapViewRepresantable: UIViewRepresentable {
     let map = MKMapView()
-    let provider = LocationProvider()
+    let provider = LocationProvider.shared
 
     @EnvironmentObject var vm: SearchViewModel
 
@@ -29,13 +29,17 @@ struct MapViewRepresantable: UIViewRepresentable {
         switch state {
             case .idle:
                 context.coordinator.clear()
+                break
             case .search:
                 break
             case .selected:
-                if let coordinate = vm.coordinate {
+                if let coordinate = vm.selected?.coordinate {
                     context.coordinator.addAnnotation(with: coordinate)
                     context.coordinator.getDirections(with: coordinate)
                 }
+                break
+            case .generated:
+                break
         }
     }
 

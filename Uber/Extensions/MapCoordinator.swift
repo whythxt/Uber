@@ -58,30 +58,12 @@ extension MapViewRepresantable {
 
         // MARK: - Route Generation
 
-        private func getDestination(
-            from location: CLLocationCoordinate2D,
-            to destination: CLLocationCoordinate2D,
-            completion: @escaping (MKRoute) -> Void
-        ) {
-            let loc = MKPlacemark(coordinate: location)
-            let des = MKPlacemark(coordinate: destination)
-
-            let request = MKDirections.Request()
-            request.source = MKMapItem(placemark: loc)
-            request.destination = MKMapItem(placemark: des)
-
-            let directions = MKDirections(request: request)
-            directions.calculate { response, error in
-                guard let route = response?.routes.first else { return }
-                completion(route)
-            }
-        }
-
         func getDirections(with destination: CLLocationCoordinate2D) {
             guard let location else { return }
 
-            getDestination(from: location, to: destination) { route in
+            parent.vm.getDestination(from: location, to: destination) { route in
                 self.parent.map.addOverlay(route.polyline)
+                self.parent.state = .generated
 
                 let rect = self.parent.map.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: .init(
                     top: 64,

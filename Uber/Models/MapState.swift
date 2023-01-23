@@ -11,4 +11,5 @@ enum MapState {
     case idle
     case search
     case selected
+    case generated
 }

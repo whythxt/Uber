@@ -15,7 +15,7 @@ struct LocationRow: View {
         HStack {
             Image(systemName: "mappin.circle.fill")
                 .resizable()
-                .foregroundColor(.blue)
+                .foregroundColor(.black)
                 .frame(width: 40, height: 40)
 
             VStack(alignment: .leading, spacing: 3) {

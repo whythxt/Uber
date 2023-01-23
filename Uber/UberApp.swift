@@ -9,12 +9,9 @@ import SwiftUI
 
 @main
 struct UberApp: App {
-    @StateObject var vm = SearchViewModel()
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(vm)
         }
     }
 }

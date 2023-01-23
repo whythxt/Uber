@@ -24,6 +24,8 @@
 		ABB073ED297D889500C0D944 /* RideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073EC297D889500C0D944 /* RideView.swift */; };
 		ABB073EF297D88CD00C0D944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB073EE297D88CD00C0D944 /* Assets.xcassets */; };
 		ABB073F1297DA13000C0D944 /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F0297DA13000C0D944 /* RideType.swift */; };
+		ABB073F3297EB60A00C0D944 /* Double-Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F2297EB60A00C0D944 /* Double-Currency.swift */; };
+		ABB073F5297EBA0E00C0D944 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB073F4297EBA0E00C0D944 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		ABB073EC297D889500C0D944 /* RideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideView.swift; sourceTree = "<group>"; };
 		ABB073EE297D88CD00C0D944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABB073F0297DA13000C0D944 /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
+		ABB073F2297EB60A00C0D944 /* Double-Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double-Currency.swift"; sourceTree = "<group>"; };
+		ABB073F4297EBA0E00C0D944 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				AB5AF3FC2979923A00516AA7 /* MapCoordinator.swift */,
 				AB5AF402297995F800516AA7 /* LocationUpdate.swift */,
 				AB5AF4102979AB2F00516AA7 /* SearchCompleter.swift */,
+				ABB073F2297EB60A00C0D944 /* Double-Currency.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			children = (
 				ABB073E9297C585000C0D944 /* MapState.swift */,
 				ABB073F0297DA13000C0D944 /* RideType.swift */,
+				ABB073F4297EBA0E00C0D944 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,7 +233,9 @@
 				AB5AF40E2979A9D600516AA7 /* SearchViewModel.swift in Sources */,
 				AB5AF40529799B4100516AA7 /* SearchBar.swift in Sources */,
 				ABB073ED297D889500C0D944 /* RideView.swift in Sources */,
+				ABB073F3297EB60A00C0D944 /* Double-Currency.swift in Sources */,
 				AB5AF40A29799F0400516AA7 /* SearchView.swift in Sources */,
+				ABB073F5297EBA0E00C0D944 /* Location.swift in Sources */,
 				AB5AF3EC2979904000516AA7 /* ContentView.swift in Sources */,
 				ABB073F1297DA13000C0D944 /* RideType.swift in Sources */,
 				ABB073EA297C585000C0D944 /* MapState.swift in Sources */,

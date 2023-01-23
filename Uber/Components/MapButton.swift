@@ -35,9 +35,9 @@ struct MapButton: View {
                 break
             case .search:
                 state = .idle
-            case .selected:
+            default:
                 state = .idle
-                vm.coordinate = nil
+                vm.selected = nil
         }
     }
 

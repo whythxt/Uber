@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var vm = SearchViewModel()
+
     @State private var state = MapState.idle
 
     var body: some View {
@@ -33,12 +35,18 @@ struct ContentView: View {
             }
             .ignoresSafeArea()
 
-            if state == .selected {
+            if state == .selected || state == .generated {
                 RideView()
                     .transition(.move(edge: .bottom ))
             }
         }
+        .environmentObject(vm)
         .edgesIgnoringSafeArea(.bottom)
+        .onReceive(LocationProvider.shared.$location) { location in
+            if let location {
+                vm.location = location
+            }
+        }
     }
 }
 

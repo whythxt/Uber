@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RideView: View {
+    @EnvironmentObject var vm: SearchViewModel
+
     @State private var ride = RideType.uberX
 
     var body: some View {
@@ -53,7 +55,7 @@ struct RideView: View {
 
                     Spacer()
 
-                    Text("4:00 PM")
+                    Text(vm.pickup ?? "Now")
                         .font(.footnote)
                         .fontWeight(.semibold)
                 }
@@ -61,12 +63,14 @@ struct RideView: View {
                 .padding(.bottom)
 
                 HStack {
-                    Text("Ocean Plaza")
-                        .font(.callout)
+                    if let loc = vm.selected {
+                        Text(loc.title)
+                            .font(.callout)
+                    }
 
                     Spacer()
 
-                    Text("4:30 PM")
+                    Text(vm.dropoff ?? "Soon")
                         .foregroundColor(.secondary)
                         .font(.footnote)
                         .fontWeight(.semibold)
@@ -94,7 +98,7 @@ struct RideView: View {
 
                             VStack(alignment: .leading, spacing: 3) {
                                 Text(type.name)
-                                Text("20.00$")
+                                Text(vm.getPrice(for: type).toCurrency())
                             }
                             .font(.subheadline)
                             .fontWeight(.semibold)
@@ -161,5 +165,6 @@ struct RideView: View {
 struct RideView_Previews: PreviewProvider {
     static var previews: some View {
         RideView()
+            .environmentObject(SearchViewModel())
     }
 }
